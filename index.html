@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+
+<title>   Registration page   </title>
+<link rel="stylesheet" href="main.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="container">
+
+<h1 class="title"> Registration </h1>
+
+<form id="form">
+
+
+<div class="inputbox">
+  <label for="name">NAME</label>
+  <input type="text" id="name" name="name" required>
+ </div> 
+ 
+<div class="inputbox"> 
+  <label for="ename">Email</label><br>
+  <input type="email" id="ename" name="ename" required>
+</div>
+
+<div class="inputbox">
+  <label for="pname">Phone Number</label>
+  <input type="tel" id="pname" name="pname" required>
+</div>
+
+<div class="inputbox">  
+  <label for="aname">Age</label><br>
+  <input type="text" id="aname" name="aname" required>
+
+</div>
+
+<div class="inputbox">
+<label for="uname">User name</label>
+<input type="text" id="uname" name="uname" required>
+</div>
+  
+  <div class="inputbox">
+  <label for="paname"> Password</label>
+  <input type="Password" id="paname" name="paname" required>
+  
+ 
+</div>
+
+<div class="btn">
+  <input type="submit" value="Submit">
+</div>
+
+
+
+
+</form>
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+let form=document.getElementById('form');
+form.addEventListener("submit",function(l){
+l.preventDefault();
+
+let name=document.getElementById('uname').value;
+let pass=document.getElementById('paname').value;
+console.log(name,pass);
+
+const Data={
+name:name,
+pass:pass
+}
+
+Form(Data)
+})
+
+function Form(Data){
+const stored=JSON.parse(localStorage.getItem('Data')) || [];
+stored.push(Data);
+
+localStorage.setItem('data',JSON.stringify(stored));
+
+window.location.href ='login.html';
+form.reset();
+}
+
+
+
+</script>
+
+
+</body>
+</html>
